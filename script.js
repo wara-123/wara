@@ -23,3 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
         countUp(counter, target);
     });
 });
+
+// Esta  funcion aplica para el anuncio de emergencia que sale al inicio"
+
+
+
+ function cerrarPopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  window.onload = function() {
+    document.getElementById("popup").style.display = "flex";
+  }
+
+
+
