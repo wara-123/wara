@@ -909,6 +909,25 @@ footer {
   }
 
 
+/* Popup para pantallas con un ancho máximo de 600px */
+@media (max-width: 600px) {
+  .popup-content {
+    width: 90vw;       /* 90% del ancho visible */
+    height: auto;      /* Se adapta al contenido */
+    max-height: 80vh;  /* Altura máxima del 80% de la pantalla */
+  }
 
+  .popup-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .close-btn {
+    top: 6px;
+    right: 10px;
+    font-size: 18px;
+  }
+}
 
 
