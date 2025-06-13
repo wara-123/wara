@@ -986,5 +986,12 @@ footer {
     object-position: center; /* Centra la imagen dentro del contenedor */
 }
 
+
+
+ .proyecto, .CONTACTO, .galeria, .UBICACION {
+       margin-bottom: 60px; /* Aumentamos el espacio entre los contenedores */
+        margin-top: 60px;
+    }
+    
     
 }
