@@ -931,3 +931,56 @@ footer {
 }
 
 
+
+/* Ajustes en el contenedor del proyecto que falla con el video se combianan - esto lo arregla  */
+
+@media (max-width: 600px) {
+    /* Ajustes en el contenedor del proyecto */
+    .proyecto {
+        padding: 10px; /* Reducimos el padding */
+        height: auto; /* Permitimos que el contenedor se ajuste al contenido */
+    }
+
+    .subrayado h2 {
+        font-size: 1.5rem; /* Reducimos el tamaño del texto */
+    }
+
+    .subrayado::after {
+        width: 120px; /* Reducimos el ancho del subrayado */
+    }
+
+    /* Ajustes en la galería */
+    .galeria {
+        padding-top: 50px; /* Reducimos el espacio superior */
+        gap: 10px; /* Reducimos el espacio entre cuadros */
+    }
+
+    .cuadro-imagen {
+        width: 150px; /* Reducimos el tamaño de los cuadros */
+        height: 150px;
+    }
+
+    /* Ajustes en el contacto */
+    .CONTACTO {
+        padding: 10px;
+        height: auto;
+    }
+
+    .subrayado h2 {
+        font-size: 1.2rem; /* Ajustamos el tamaño del título */
+    }
+
+    .subrayado::after {
+        width: 100px; /* Ajustamos el ancho del subrayado */
+    }
+
+    .UBICACION {
+        height: 250px; /* Reducimos la altura del mapa */
+    }
+}
+
+
+
+
+
+
