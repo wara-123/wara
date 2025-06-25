@@ -60,6 +60,17 @@
         button[type="submit"]:hover {
             background-color: #800000;
         }
+
+        /* Mensajes */
+        #mensajeError {
+            color: red;
+            margin: 10px 0;
+        }
+
+        #mensajeExito {
+            color: green;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -67,7 +78,7 @@
     <h1>Libro de Reclamaciones</h1>
 
     <form action="https://formsubmit.co/waracorreo@gmail.com" method="POST">
-         <!-- Configuración interna -->
+        <!-- Configuración interna -->
         <input type="hidden" name="_subject" value="Nuevo Reclamo desde el Libro de Reclamaciones">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
@@ -120,8 +131,14 @@
         <label for="firma">Nombre del consumidor (como firma):</label>
         <input type="text" id="firma" name="firma" required>
 
+        <!-- Contenedores para mensajes -->
+        <div id="mensajeError"></div>
+        <div id="mensajeExito"></div>
+
         <button type="submit">Enviar</button>
     </form>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
