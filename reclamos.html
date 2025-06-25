@@ -138,11 +138,22 @@
         <button type="submit">Enviar</button>
     </form>
 
-   <script>
+  <script>
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("formularioReclamo").addEventListener("submit", function(e) {
+    const formulario = document.getElementById("formularioReclamo");
+    const dniInput = document.getElementById("dni");
+
+    // ✅ Bloquea letras y símbolos al escribir en el campo DNI
+    dniInput.addEventListener("keypress", function (e) {
+        if (!/\d/.test(e.key)) {
+            e.preventDefault(); // Solo permite números
+        }
+    });
+
+    // Validación final al enviar
+    formulario.addEventListener("submit", function(e) {
         const email = document.getElementById("email").value.trim();
-        const dni = document.getElementById("dni").value.trim();
+        const dni = dniInput.value.trim();
         const telefono = document.getElementById("telefono").value.trim();
 
         const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
@@ -173,6 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+
 
 </body>
 </html>
