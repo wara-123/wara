@@ -33,14 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ❌ Función para cerrar el popup al hacer clic en la X
-function cerrarPopup() {
-    const popup = document.getElementById("popup");
-    if (popup) {
-        popup.style.display = "none";
-    }
-}
-
 
 
 // validacion de datos del libro de reclamos
