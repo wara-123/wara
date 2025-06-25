@@ -44,36 +44,3 @@ function cerrarPopup() {
 
 
 // validacion de datos del libro de reclamos
-document.getElementById("formularioReclamo").addEventListener("submit", function(e) {
-    const email = document.getElementById("email").value.trim();
-    const dni = document.getElementById("dni").value.trim();
-    const telefono = document.getElementById("telefono").value.trim();
-
-    const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-    const dniRegex = /^[0-9]{8}$/;  // Solo 8 números exactos para DNI
-    const telefonoRegex = /^[0-9]{6,12}$/;
-
-    if (!emailRegex.test(email)) {
-        alert("Ingrese un correo electrónico válido.");
-        e.preventDefault();
-        return;
-    }
-
-    if (!dniRegex.test(dni)) {
-        alert("Ingrese un DNI válido de 8 dígitos numéricos.");
-        e.preventDefault();
-        return;
-    }
-
-    if (!telefonoRegex.test(telefono)) {
-        alert("Ingrese un número de teléfono válido (de 6 a 12 dígitos).");
-        e.preventDefault();
-        return;
-    }
-
-    // Confirmación opcional
-    if (!confirm("¿Está seguro de enviar el reclamo?")) {
-        e.preventDefault();
-    }
-});
-
