@@ -41,39 +41,80 @@ function cerrarPopup() {
     }
 }
 
-//  Función para validar datos del libro de reclamos 
+document.addEventListener("DOMContentLoaded", function() {
+    const formulario = document.getElementById("formularioReclamo");
+    const mensajeError = document.getElementById("mensajeError");
+    const mensajeExito = document.getElementById("mensajeExito");
 
-  document.getElementById("formularioReclamo").addEventListener("submit", function(e) {
-            const email = document.getElementById("email").value;
-            const dni = document.getElementById("dni").value;
-            const telefono = document.getElementById("telefono").value;
+    formulario.addEventListener("submit", function(e) {
+        e.preventDefault(); // Evitar envío para validar primero
 
-            const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-            const dniRegex = /^[0-9a-zA-Z]{8,12}$/;
-            const telefonoRegex = /^[0-9]{6,12}$/;
+        mensajeError.innerHTML = "";
+        mensajeExito.innerHTML = "";
 
-            if (!emailRegex.test(email)) {
-                alert("Ingrese un correo electrónico válido.");
-                e.preventDefault();
-                return;
+        const email = document.getElementById("email").value.trim();
+        const dni = document.getElementById("dni").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const edad = parseInt(document.getElementById("edad").value.trim());
+        const fecha = document.getElementById("fecha").value.trim();
+        const detalle = document.getElementById("detalle").value.trim();
+        const firma = document.getElementById("firma").value.trim();
+
+        const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+        const dniRegex = /^[0-9a-zA-Z]{8,12}$/;
+        const telefonoRegex = /^[0-9]{6,12}$/;
+        const firmaRegex = /^[a-zA-Z\s]+$/;
+
+        let errores = [];
+
+        if (!emailRegex.test(email)) {
+            errores.push("Ingrese un correo electrónico válido.");
+        }
+
+        if (!dniRegex.test(dni)) {
+            errores.push("Ingrese un número de documento válido (8-12 caracteres).");
+        }
+
+        if (!telefonoRegex.test(telefono)) {
+            errores.push("Ingrese un número de teléfono válido (6 a 12 dígitos).");
+        }
+
+        if (!(edad >= 1 && edad <= 120)) {
+            errores.push("Ingrese una edad válida entre 1 y 120 años.");
+        }
+
+        if (!fecha) {
+            errores.push("Ingrese la fecha del incidente.");
+        } else {
+            const fechaIncidente = new Date(fecha);
+            const hoy = new Date();
+            hoy.setHours(0,0,0,0);
+            if (fechaIncidente > hoy) {
+                errores.push("La fecha del incidente no puede ser futura.");
             }
+        }
 
-            if (!dniRegex.test(dni)) {
-                alert("Ingrese un número de documento válido (8-12 caracteres).");
-                e.preventDefault();
-                return;
-            }
+        if (detalle.length < 10) {
+            errores.push("El detalle del reclamo debe tener al menos 10 caracteres.");
+        }
 
-            if (!telefonoRegex.test(telefono)) {
-                alert("Ingrese un número de teléfono válido (6 a 12 dígitos).");
-                e.preventDefault();
-                return;
-            }
+        if (!firmaRegex.test(firma)) {
+            errores.push("La firma solo puede contener letras y espacios.");
+        }
 
-            // Confirmación opcional
-            if (!confirm("¿Está seguro de enviar el reclamo?")) {
-                e.preventDefault();
-            }
-        });
+        if (errores.length > 0) {
+            mensajeError.innerHTML = errores.join("<br>");
+            return;
+        }
 
+        // Confirmación antes de enviar
+        if (!confirm("¿Está seguro de enviar el reclamo?")) {
+            return;
+        }
+
+        // Si pasa todo, enviamos el formulario
+        mensajeExito.innerHTML = "Reclamo enviado correctamente. Gracias por contactarnos.";
+        formulario.submit();
+    });
+});
 
