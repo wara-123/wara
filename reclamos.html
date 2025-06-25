@@ -150,15 +150,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-   <script>
+  
+  <script>
 document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("formularioReclamo");
     const dniInput = document.getElementById("dni");
+    const edadInput = document.getElementById("edad");
 
-    // Bloquear letras y símbolos en el campo DNI
+    // Bloquea letras y símbolos en el campo DNI
     dniInput.addEventListener("keypress", function (e) {
         if (!/\d/.test(e.key)) {
             e.preventDefault();
+        }
+    });
+
+    // Bloquea más de 2 dígitos en edad
+    edadInput.addEventListener("input", function () {
+        if (this.value.length > 2) {
+            this.value = this.value.slice(0, 2);
         }
     });
 
@@ -166,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email").value.trim();
         const dni = dniInput.value.trim();
         const telefono = document.getElementById("telefono").value.trim();
-        const edad = parseInt(document.getElementById("edad").value.trim(), 10);
+        const edad = parseInt(edadInput.value.trim(), 10);
 
         const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
         const dniRegex = /^[0-9]{8}$/;
@@ -202,6 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
-
+    
 </body>
 </html>
