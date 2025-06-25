@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Libro de Reclamaciones</title>
     <style>
-        /* tu CSS original */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             padding: 40px;
             color: #333;
         }
+
         form {
             max-width: 700px;
             margin: auto;
@@ -19,15 +19,18 @@
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
             color: #b30000;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
         }
+
         input[type="text"],
         input[type="email"],
         input[type="number"],
@@ -42,6 +45,7 @@
             font-size: 16px;
             box-sizing: border-box;
         }
+
         button[type="submit"] {
             background-color: #b30000;
             color: white;
@@ -52,13 +56,17 @@
             cursor: pointer;
             width: 100%;
         }
+
         button[type="submit"]:hover {
             background-color: #800000;
         }
+
+        /* Mensajes */
         #mensajeError {
             color: red;
             margin: 10px 0;
         }
+
         #mensajeExito {
             color: green;
             margin: 10px 0;
@@ -67,76 +75,78 @@
 </head>
 <body>
 
-<h1>Libro de Reclamaciones</h1>
+    <h1>Libro de Reclamaciones</h1>
 
-<form id="formularioReclamo" action="https://formsubmit.co/waracorreo@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="Nuevo Reclamo desde el Libro de Reclamaciones">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
+   <form id="formularioReclamo" action="https://formsubmit.co/waracorreo@gmail.com" method="POST">
+        <!-- Configuración interna -->
+        <input type="hidden" name="_subject" value="Nuevo Reclamo desde el Libro de Reclamaciones">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
 
-    <label for="nombres">Nombres completos:</label>
-    <input type="text" id="nombres" name="nombres" required>
+        <!-- Datos del consumidor -->
+        <label for="nombres">Nombres completos:</label>
+        <input type="text" id="nombres" name="nombres" required>
 
-    <label for="apellidos">Apellidos completos:</label>
-    <input type="text" id="apellidos" name="apellidos" required>
+        <label for="apellidos">Apellidos completos:</label>
+        <input type="text" id="apellidos" name="apellidos" required>
 
-    <label for="dni">DNI / CE / Pasaporte:</label>
-    <input type="text" id="dni" name="dni" required>
+        <label for="dni">DNI / CE / Pasaporte:</label>
+        <input type="text" id="dni" name="dni" maxlength="8" required>
 
-    <label for="edad">Edad:</label>
-    <input type="number" id="edad" name="edad" min="1" required>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="1" required>
 
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion" required>
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required>
 
-    <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" name="telefono" required>
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required>
 
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email" required>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
 
-    <label for="fecha">Fecha del incidente:</label>
-    <input type="date" id="fecha" name="fecha" required>
+        <!-- Datos del producto o servicio -->
+        <label for="fecha">Fecha del incidente:</label>
+        <input type="date" id="fecha" name="fecha" required>
 
-    <label for="servicio">Producto o servicio relacionado:</label>
-    <input type="text" id="servicio" name="servicio" required>
+        <label for="servicio">Producto o servicio relacionado:</label>
+        <input type="text" id="servicio" name="servicio" required>
 
-    <label for="monto">Monto involucrado (si aplica):</label>
-    <input type="text" id="monto" name="monto">
+        <label for="monto">Monto involucrado (si aplica):</label>
+        <input type="text" id="monto" name="monto">
 
-    <label for="tipo">Tipo de mensaje:</label>
-    <select id="tipo" name="tipo" required>
-        <option value="Reclamo">Reclamo (sobre un producto o servicio)</option>
-        <option value="Queja">Queja (por atención al cliente u otra razón)</option>
-    </select>
+        <!-- Tipo -->
+        <label for="tipo">Tipo de mensaje:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="Reclamo">Reclamo (sobre un producto o servicio)</option>
+            <option value="Queja">Queja (por atención al cliente u otra razón)</option>
+        </select>
 
-    <label for="detalle">Detalle del reclamo o queja:</label>
-    <textarea id="detalle" name="detalle" rows="5" required></textarea>
+        <!-- Descripción -->
+        <label for="detalle">Detalle del reclamo o queja:</label>
+        <textarea id="detalle" name="detalle" rows="5" required></textarea>
 
-    <label for="firma">Nombre del consumidor (como firma):</label>
-    <input type="text" id="firma" name="firma" required>
+        <!-- Firma -->
+        <label for="firma">Nombre del consumidor (como firma):</label>
+        <input type="text" id="firma" name="firma" required>
 
-    <div id="mensajeError"></div>
-    <div id="mensajeExito"></div>
+        <!-- Contenedores para mensajes -->
+        <div id="mensajeError"></div>
+        <div id="mensajeExito"></div>
 
-    <button type="submit">Enviar</button>
-</form>
+        <button type="submit">Enviar</button>
+    </form>
 
-<script>
+   <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("formularioReclamo");
-    if (!form) {
-        console.warn("No se encontró el formulario con id 'formularioReclamo'");
-        return;  // Evita error si no está el formulario
-    }
-    form.addEventListener("submit", function(e) {
+    document.getElementById("formularioReclamo").addEventListener("submit", function(e) {
         const email = document.getElementById("email").value.trim();
         const dni = document.getElementById("dni").value.trim();
         const telefono = document.getElementById("telefono").value.trim();
 
         const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-        const dniRegex = /^[0-9]{8}$/;
+        const dniRegex = /^[0-9]{8}$/;  // Exactamente 8 dígitos numéricos
         const telefonoRegex = /^[0-9]{6,12}$/;
 
         if (!emailRegex.test(email)) {
@@ -159,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!confirm("¿Está seguro de enviar el reclamo?")) {
             e.preventDefault();
-            return;
         }
     });
 });
