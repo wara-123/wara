@@ -41,80 +41,39 @@ function cerrarPopup() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const formulario = document.getElementById("formularioReclamo");
-    const mensajeError = document.getElementById("mensajeError");
-    const mensajeExito = document.getElementById("mensajeExito");
 
-    formulario.addEventListener("submit", function(e) {
-        e.preventDefault(); // Evitar envío para validar primero
 
-        mensajeError.innerHTML = "";
-        mensajeExito.innerHTML = "";
+// validacion de datos del libro de reclamos
+document.getElementById("formularioReclamo").addEventListener("submit", function(e) {
+    const email = document.getElementById("email").value.trim();
+    const dni = document.getElementById("dni").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
 
-        const email = document.getElementById("email").value.trim();
-        const dni = document.getElementById("dni").value.trim();
-        const telefono = document.getElementById("telefono").value.trim();
-        const edad = parseInt(document.getElementById("edad").value.trim());
-        const fecha = document.getElementById("fecha").value.trim();
-        const detalle = document.getElementById("detalle").value.trim();
-        const firma = document.getElementById("firma").value.trim();
+    const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    const dniRegex = /^[0-9]{8}$/;  // Solo 8 números exactos para DNI
+    const telefonoRegex = /^[0-9]{6,12}$/;
 
-        const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-        const dniRegex = /^[0-9a-zA-Z]{8,12}$/;
-        const telefonoRegex = /^[0-9]{6,12}$/;
-        const firmaRegex = /^[a-zA-Z\s]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Ingrese un correo electrónico válido.");
+        e.preventDefault();
+        return;
+    }
 
-        let errores = [];
+    if (!dniRegex.test(dni)) {
+        alert("Ingrese un DNI válido de 8 dígitos numéricos.");
+        e.preventDefault();
+        return;
+    }
 
-        if (!emailRegex.test(email)) {
-            errores.push("Ingrese un correo electrónico válido.");
-        }
+    if (!telefonoRegex.test(telefono)) {
+        alert("Ingrese un número de teléfono válido (de 6 a 12 dígitos).");
+        e.preventDefault();
+        return;
+    }
 
-        if (!dniRegex.test(dni)) {
-            errores.push("Ingrese un número de documento válido (8-12 caracteres).");
-        }
-
-        if (!telefonoRegex.test(telefono)) {
-            errores.push("Ingrese un número de teléfono válido (6 a 12 dígitos).");
-        }
-
-        if (!(edad >= 1 && edad <= 120)) {
-            errores.push("Ingrese una edad válida entre 1 y 120 años.");
-        }
-
-        if (!fecha) {
-            errores.push("Ingrese la fecha del incidente.");
-        } else {
-            const fechaIncidente = new Date(fecha);
-            const hoy = new Date();
-            hoy.setHours(0,0,0,0);
-            if (fechaIncidente > hoy) {
-                errores.push("La fecha del incidente no puede ser futura.");
-            }
-        }
-
-        if (detalle.length < 10) {
-            errores.push("El detalle del reclamo debe tener al menos 10 caracteres.");
-        }
-
-        if (!firmaRegex.test(firma)) {
-            errores.push("La firma solo puede contener letras y espacios.");
-        }
-
-        if (errores.length > 0) {
-            mensajeError.innerHTML = errores.join("<br>");
-            return;
-        }
-
-        // Confirmación antes de enviar
-        if (!confirm("¿Está seguro de enviar el reclamo?")) {
-            return;
-        }
-
-        // Si pasa todo, enviamos el formulario
-        mensajeExito.innerHTML = "Reclamo enviado correctamente. Gracias por contactarnos.";
-        formulario.submit();
-    });
+    // Confirmación opcional
+    if (!confirm("¿Está seguro de enviar el reclamo?")) {
+        e.preventDefault();
+    }
 });
 
