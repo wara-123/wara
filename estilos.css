@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
 }
 
-.panel, .proyecto, .CONTACTO, .NOSOTROS, .ultimo-texto {
+.proyecto, .CONTACTO, .NOSOTROS, .ultimo-texto {
     width: 100%; /* Cambia 100vw a 100% */
     box-sizing: border-box; /* Asegúrate de que el padding no cause desbordamiento */
 }
@@ -60,145 +60,78 @@ body {
 
 /* Responsivo: Mostrar el botón de menú en pantallas pequeñas */
 @media (max-width: 768px) {
-    /* Estilos para el botón de la hamburguesa */
+    /* Botón hamburguesa */
     .checkbtn {
         display: block;
         cursor: pointer;
-        background-color: transparent; /* Sin fondo para el botón */
+        background-color: transparent;
         border: none;
         padding: 15px;
         position: absolute;
-        top: 20px; /* Ajusta según sea necesario */
-        right: 20px; /* Ajusta según sea necesario */
-        z-index: 1001; /* Asegura que el botón esté por encima del menú */
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
     }
 
     .checkbtn svg {
-        fill: #333; /* Color de las líneas del menú */
-        width: 30px; /* Tamaño del icono */
-        height: 30px; /* Tamaño del icono */
+        fill: #333;
+        width: 30px;
+        height: 30px;
     }
 
-    /* Estilos para el menú */
-    ul {
-        display: flex; /* Muestra el menú en dispositivos móviles */
+    /* Menú oculto por defecto */
+    #menu ul {
+        display: flex;
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Ajusta la distancia desde la parte superior */
+        top: 80px;
         left: 0;
         width: 100%;
         background-color: #f8f8f8;
         padding: 0;
         margin: 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añade sombra para que el menú se vea flotante */
-        z-index: 1000; /* Asegura que el menú esté encima de otros elementos */
-        max-height: 0; /* Inicialmente el menú está colapsado */
-        overflow: hidden; /* Oculta el contenido que no cabe */
-        transition: max-height 0.3s ease-out; /* Animación suave */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
     }
 
-    /* Estilos para los elementos del menú */
-    ul li {
+    /* Elementos del menú */
+    #menu li {
         text-align: center;
         margin: 10px 0;
         width: 100%;
     }
 
-    ul li a {
+    #menu li a {
         display: block;
         padding: 15px 20px;
         text-decoration: none;
         color: #333;
         font-size: 18px;
-        transition: background-color 0.3s ease; /* Transición suave */
+        transition: background-color 0.3s ease;
     }
 
-    /* Efecto al pasar el cursor por encima de los enlaces */
-    ul li a:hover {
+    #menu li a:hover {
         background-color: #ddd;
     }
 
-    /* Mostrar el menú cuando el checkbox está marcado */
+    /* Mostrar el menú al hacer clic en el checkbox */
     input[type="checkbox"]:checked ~ #menu ul {
-        max-height: 500px; /* Ajusta este valor según el número de elementos en el menú */
-        transition: max-height 0.5s ease-in; /* Desliza hacia abajo cuando el checkbox está marcado */
+        max-height: 500px;
+        transition: max-height 0.5s ease-in;
     }
 
-    /* Estilo del logo */
-    #menu img {
-        display: block;
-        margin: 20px auto; /* Centra el logo */
-    }
-}@media (max-width: 768px) {
-    /* Estilos para el botón de la hamburguesa */
-    .checkbtn {
-        display: block;
-        cursor: pointer;
-        background-color: transparent; /* Sin fondo para el botón */
-        border: none;
-        padding: 15px;
-        position: absolute;
-        top: 20px; /* Ajusta según sea necesario */
-        right: 20px; /* Ajusta según sea necesario */
-        z-index: 1001; /* Asegura que el botón esté por encima del menú */
-    }
-
-    .checkbtn svg {
-        fill: #333; /* Color de las líneas del menú */
-        width: 30px; /* Tamaño del icono */
-        height: 30px; /* Tamaño del icono */
-    }
-
-    /* Estilos para el menú */
-    ul {
-        display: none; /* Oculta el menú por defecto */
-        flex-direction: column;
-        position: absolute;
-        top: 80px; /* Ajusta la distancia desde la parte superior */
-        left: 0;
-        width: 100%;
-        background-color: #f8f8f8;
-        padding: 0;
-        margin: 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añade sombra para que el menú se vea flotante */
-        z-index: 1000; /* Asegura que el menú esté encima de otros elementos */
-    }
-
-    /* Estilos para los elementos del menú */
-    ul li {
-        text-align: center;
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    ul li a {
-        display: block;
-        padding: 15px 20px;
-        text-decoration: none;
-        color: #333;
-        font-size: 18px;
-        transition: background-color 0.3s ease; /* Transición suave */
-    }
-
-    /* Efecto al pasar el cursor por encima de los enlaces */
-    ul li a:hover {
-        background-color: #ddd;
-    }
-
-    /* Mostrar el menú cuando el checkbox está marcado */
-    input[type="checkbox"]:checked ~ #menu ul {
-        display: flex; /* Muestra el menú */
-    }
-
-    /* Estilos opcionales para cerrar el menú (cuando está abierto) */
+    /* Cambiar color del ícono cuando el menú está abierto */
     input[type="checkbox"]:checked ~ .checkbtn svg {
-        fill: #ff6347; /* Cambia el color del icono cuando el menú está abierto */
+        fill: #ff6347;
     }
 
-    /* Estilo del logo */
+    /* Centrar logo */
     #menu img {
         display: block;
-        margin: 20px auto; /* Centra el logo */
+        margin: 20px auto;
     }
 }
 
@@ -220,7 +153,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajusta la imagen para que no se recorte, pero puede dejar espacios vacíos */
+    object-fit: cover; /* Ajusta la imagen contain  para que no se 
+    recorte lo modifique a cover si falla lo corriges aqui cambiando cover por
+    contain */
     z-index: -1; /* Envía la imagen al fondo */
 }
 
@@ -352,7 +287,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100;
+    width: 100%;
     height: 100vh;
     padding: 20px;
     box-sizing: border-box;
