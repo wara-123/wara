@@ -36,3 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // validacion de datos del libro de reclamos
+
+// efecto navideño
+ window.addEventListener("load", () => {
+        document.getElementById("navidad-overlay").style.display = "flex";
+      });
+
+      document.getElementById("cerrar-navidad").addEventListener("click", () => {
+        document.getElementById("navidad-overlay").style.display = "none";
+      });
+
