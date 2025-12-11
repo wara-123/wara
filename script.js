@@ -46,3 +46,30 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("navidad-overlay").style.display = "none";
       });
 
+    
+// --- EFECTO DE NIEVE ---
+function crearNieve() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    snowflake.textContent = "❄";
+
+    // Tamaño aleatorio
+    snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+
+    // Posición aleatoria
+    snowflake.style.left = Math.random() * window.innerWidth + "px";
+
+    // Duración variable de la caída
+    snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+
+    document.body.appendChild(snowflake);
+
+    // Eliminar copo al terminar animación
+    setTimeout(() => {
+        snowflake.remove();
+    }, 10000);
+}
+
+// Crea nieve constantemente
+setInterval(crearNieve, 150);
+
