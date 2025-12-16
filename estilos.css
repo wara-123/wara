@@ -892,58 +892,51 @@ footer {
 
 /* tema navideño */
 
-      #navidad-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.6);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-      }
+     #navidad-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
-      #navidad-popup {
-        background: white;
-        padding: 25px;
-        width: 320px;
-        max-width: 90%;
-        text-align: center;
-        border-radius: 12px;
-        position: relative;
-        box-shadow: 0 0 15px rgba(0,0,0,0.4);
-        border: 3px solid #c62828;
-        font-family: 'Montserrat', sans-serif;
-      }
+#navidad-popup {
+  background: white;
+  padding: 15px;
+  max-width: 90%;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  border: 3px solid #c62828;
+  text-align: center;
+}
 
-      #navidad-popup::before,
-      #navidad-popup::after {
-        content: "🎄";
-        position: absolute;
-        font-size: 35px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
+#navidad-img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
 
-      #navidad-popup::before { left: -45px; }
-      #navidad-popup::after { right: -45px; }
+#cerrar-navidad {
+  margin-top: 15px;
+  background: #c62828;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-      #cerrar-navidad {
-        margin-top: 15px;
-        background: #c62828;
-        color: white;
-        padding: 10px 18px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-
-      #cerrar-navidad:hover {
-        background: #b71c1c;
-      }
+#cerrar-navidad:hover {
+  background: #b71c1c;
+}
 
 
 
@@ -969,6 +962,7 @@ footer {
         opacity: 0.4;
     }
 }
+
 
 
 
