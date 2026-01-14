@@ -910,7 +910,7 @@ footer {
 #navidad-popup {
   background: white;
   padding: 20px;
-  width: 520px;          /* CAJA MÁS ANCHA */
+  width: 450px;          /* CAJA MÁS ANCHA */
   max-width: 98%;
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
@@ -947,28 +947,7 @@ footer {
 
 
 
-/* --- Nieve --- */
-.snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    font-size: 18px;
-    pointer-events: none;
-    animation: caer 10s linear infinite;
-    z-index: 9999;
-    text-shadow: 0 0 5px rgba(255,255,255,0.8);
-}
 
-@keyframes caer {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0.4;
-    }
-}
 
 
 
