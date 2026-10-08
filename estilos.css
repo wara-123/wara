@@ -889,62 +889,166 @@ footer {
 }
 
 /* tema navideño */
-
-/* FONDO OSCURO */
-
-
 #navidad-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* CAJA DEL POPUP */
 #navidad-popup {
-  background: white;
-  padding: 20px;
-  width: 450px;          /* CAJA MÁS ANCHA */
-  max-width: 98%;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  border: 3px solid #c62828;
-  text-align: center;
+    background: white;
+    width: 890px;
+    max-width: 96%;
+    max-height: 95vh;
+    padding: 20px;
+    border-radius: 18px;
+    border: 3px solid #c62828;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-/* IMAGEN MÁS GRANDE */
-#navidad-img {
-  width: 100%;           /* OCUPA TODO EL POPUP */
-  max-width: 100%;       /* SIN LÍMITE */
-  height: auto;
-  border-radius: 14px;
+#navidad-imagenes {
+    width: 100%;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 5px;
+    box-sizing: border-box;
 }
 
-/* BOTÓN CERRAR */
+#navidad-imagenes img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+#navidad-imagenes::-webkit-scrollbar {
+    width: 8px;
+}
+
+#navidad-imagenes::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 10px;
+}
+
+#navidad-imagenes::-webkit-scrollbar-thumb {
+    background: #c62828;
+    border-radius: 10px;
+}
+
+#navidad-imagenes::-webkit-scrollbar-thumb:hover {
+    background: #b71c1c;
+}
+
 #cerrar-navidad {
-  display: block;
-  margin: 18px auto 0;
-  background: #c62828;
-  color: white;
-  padding: 12px 34px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
+    flex-shrink: 0;
+    display: block;
+    margin: 18px auto 0;
+    background: #c62828;
+    color: white;
+    padding: 14px 45px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 1;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 #cerrar-navidad:hover {
-  background: #b71c1c;
+    background: #b71c1c;
+    transform: scale(1.05);
 }
 
+#cerrar-navidad:active {
+    transform: scale(0.97);
+}
 
+@media (max-width: 900px) {
+
+    #navidad-overlay {
+        padding: 15px;
+    }
+
+    #navidad-popup {
+        width: 750px;
+        max-width: 96%;
+        max-height: 95vh;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    #navidad-overlay {
+        padding: 8px;
+        align-items: center;
+    }
+
+    #navidad-popup {
+        width: 100%;
+        max-width: 100%;
+        max-height: 96vh;
+        padding: 10px;
+        border-radius: 14px;
+        border-width: 2px;
+    }
+
+    #navidad-imagenes {
+        gap: 12px;
+        min-height: 0;
+    }
+
+    #navidad-imagenes img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    #cerrar-navidad {
+        margin-top: 12px;
+        padding: 15px 40px;
+        font-size: 18px;
+        min-height: 48px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    #navidad-overlay {
+        padding: 5px;
+    }
+
+    #navidad-popup {
+        padding: 8px;
+        max-height: 97vh;
+    }
+
+    #cerrar-navidad {
+        padding: 14px 35px;
+        font-size: 17px;
+    }
+}
 
 
 
